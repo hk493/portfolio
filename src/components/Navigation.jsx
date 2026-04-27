@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 
@@ -18,73 +18,78 @@ export default function Navigation() {
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="fixed top-4 left-0 right-0 z-50 px-4 lg:px-16"
+      transition={{ duration: 0.6 }}
+      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 font-body"
     >
       <div className="flex items-center justify-between">
         {/* Logo */}
         <a
           href="#home"
-          className="liquid-glass w-12 h-12 rounded-full flex items-center justify-center"
+          className="text-xl font-semibold tracking-tight text-foreground flex items-center gap-1.5"
         >
-          <span className="font-heading italic text-white text-2xl lowercase leading-none">
-            h
-          </span>
+          <span className="text-accent">✦</span> Hoto
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex liquid-glass rounded-full p-1.5 items-center gap-1">
+        <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="px-3 py-2 text-sm font-medium text-white/90 font-body hover:text-white transition-colors rounded-full"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="ml-1 bg-white text-black rounded-full px-4 py-2 text-sm font-medium font-body flex items-center gap-1 whitespace-nowrap hover:bg-white/90 transition-colors"
-          >
-            Get In Touch
-            <ArrowUpRight size={14} strokeWidth={2} />
-          </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* CTA */}
+        <a
+          href="#contact"
+          className="hidden md:inline-flex rounded-full px-5 py-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors items-center gap-1.5"
+        >
+          Get In Touch
+          <ArrowUpRight size={14} strokeWidth={2} />
+        </a>
+
+        {/* Mobile menu button */}
         <button
-          className="md:hidden liquid-glass w-12 h-12 rounded-full flex items-center justify-center text-white"
+          className="md:hidden h-10 w-10 rounded-full bg-background border border-border flex items-center justify-center text-foreground"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          {isOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
-
-        {/* Spacer for desktop symmetry */}
-        <div className="hidden md:block w-12 h-12" aria-hidden="true" />
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden mt-3 liquid-glass rounded-[1.5rem] p-4"
+            className="md:hidden mt-3 rounded-2xl bg-background border border-border p-3 shadow-dashboard"
           >
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col">
               {links.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-4 py-3 text-white/90 font-body text-sm hover:bg-white/5 rounded-full transition-colors"
+                  className="px-3 py-2 text-foreground text-sm hover:bg-secondary rounded-md"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 rounded-full px-4 py-2 text-sm font-medium bg-primary text-primary-foreground flex items-center justify-center gap-1.5"
+              >
+                Get In Touch
+                <ArrowUpRight size={14} strokeWidth={2} />
+              </a>
             </div>
           </motion.div>
         )}

@@ -6,10 +6,12 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-background min-h-screen">
+      <CustomCursor />
       <Navigation />
       <section id="home">
         <Home />

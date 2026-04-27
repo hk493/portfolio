@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-// Word-by-word blur-in animation. Triggers on intersection.
+// Word-by-word blur-in animation. Triggers on intersection with a fallback timer
+// so it never gets stuck invisible inside pinned ScrollTrigger sections.
 export default function BlurText({
   text,
   className = '',
   delayStart = 0,
   stepDuration = 0.35,
   as = 'h1',
+  align = 'left',
 }) {
   const ref = useRef(null)
   const [inView, setInView] = useState(false)
@@ -21,20 +23,33 @@ export default function BlurText({
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     )
     observer.observe(ref.current)
-    return () => observer.disconnect()
+    // Fallback: ensure animation runs even if observer never fires
+    const fallback = setTimeout(() => setInView(true), 1500)
+    return () => {
+      observer.disconnect()
+      clearTimeout(fallback)
+    }
   }, [])
 
   const words = text.split(' ')
   const MotionTag = motion[as] || motion.h1
 
+  const justify =
+    align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start'
+
   return (
     <MotionTag
       ref={ref}
       className={className}
-      style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', rowGap: '0.1em' }}
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: justify,
+        rowGap: '0.1em',
+      }}
     >
       {words.map((word, i) => (
         <motion.span
