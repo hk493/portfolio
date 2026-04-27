@@ -13,7 +13,7 @@ export default function Projects() {
   const sorted = [...filtered].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
 
   return (
-    <section className="relative w-full bg-background py-24 px-4 md:px-16">
+    <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6">

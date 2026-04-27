@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Trophy, Award, GraduationCap, Globe, Briefcase } from 'lucide-react'
 import BlurText from './BlurText'
+import TiltCard from './TiltCard'
 
 export default function About() {
   const highlights = [
@@ -12,7 +13,7 @@ export default function About() {
   ]
 
   return (
-    <section className="relative w-full bg-background py-24 px-4 md:px-16">
+    <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6">
           <span className="text-sm font-body text-muted-foreground">// About</span>
@@ -30,7 +31,9 @@ export default function About() {
           className="font-display italic text-foreground text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-2px]"
         />
 
-        <motion.div
+        <TiltCard
+          as={motion.div}
+          strength={4}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -54,12 +57,14 @@ export default function About() {
               現在は<span className="text-foreground font-medium">AIタレントを扱う株式会社オビトの代表取締役</span>として事業を率いる。
             </p>
           </div>
-        </motion.div>
+        </TiltCard>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-10">
           {highlights.map((item, index) => (
-            <motion.div
+            <TiltCard
+              as={motion.div}
               key={item.title}
+              strength={8}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -75,7 +80,7 @@ export default function About() {
               <p className="text-xs text-muted-foreground font-body leading-snug">
                 {item.description}
               </p>
-            </motion.div>
+            </TiltCard>
           ))}
         </div>
       </div>

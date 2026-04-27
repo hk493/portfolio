@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
+import TiltCard from './TiltCard'
 
 export default function Experience() {
   const timeline = [
@@ -25,7 +26,7 @@ export default function Experience() {
   ]
 
   return (
-    <section className="relative w-full bg-secondary/40 py-24 px-4 md:px-16">
+    <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-5xl mx-auto">
         <div className="mb-6">
           <span className="text-sm font-body text-muted-foreground">// Experience</span>
@@ -39,8 +40,10 @@ export default function Experience() {
 
         <div className="mt-16 space-y-4">
           {timeline.map((item, index) => (
-            <motion.div
+            <TiltCard
+              as={motion.div}
               key={item.period}
+              strength={4}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -68,7 +71,7 @@ export default function Experience() {
                   {item.description}
                 </p>
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
         </div>
       </div>

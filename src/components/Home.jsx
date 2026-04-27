@@ -1,37 +1,20 @@
 import { motion } from 'framer-motion'
-import { Play } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import DashboardPreview from './DashboardPreview'
+import TiltCard from './TiltCard'
 
 export default function Home() {
   return (
-    <section className="relative h-screen w-full bg-background overflow-hidden flex flex-col">
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260319_015952_e1deeb12-8fb7-4071-a42a-60779fc64ab6.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Soft top wash so navbar reads on the video */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/0 z-0" />
-
-      {/* Hero content (Navbar lives outside this component, fixed) */}
-      <div className="relative z-10 flex-1 flex flex-col items-center w-full px-4 pt-28 md:pt-32">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col">
+      <div className="relative z-10 flex-1 flex flex-col items-center w-full px-4 pt-28 md:pt-32 pb-16">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-1.5 text-sm text-muted-foreground font-body mb-6"
+          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/80 backdrop-blur-md px-4 py-1.5 text-sm text-muted-foreground font-body mb-6"
         >
-          Now shipping AI products ✨
+          Hoto Tajima · Portfolio 2026
         </motion.div>
 
         {/* Headline */}
@@ -51,7 +34,7 @@ export default function Home() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-4 text-center text-base md:text-lg text-muted-foreground max-w-[650px] leading-relaxed font-body"
         >
-          Hoto Tajima · 株式会社オビト代表。AIタレント事業と業務ツールを設計から実装まで一気通貫で届ける。
+          株式会社オビト代表。AIタレント事業と業務ツールを設計から実装まで一気通貫で届ける。
         </motion.p>
 
         {/* CTAs */}
@@ -59,32 +42,34 @@ export default function Home() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-5 flex items-center gap-3"
+          className="mt-6 flex items-center gap-3"
         >
           <a
-            href="#contact"
-            className="rounded-full px-6 py-3 text-sm font-medium font-body bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            href="#projects"
+            className="rounded-full px-6 py-3 text-sm font-medium font-body bg-primary text-primary-foreground hover:bg-primary/90 transition-colors inline-flex items-center gap-1.5"
           >
-            Book a demo
+            View projects
+            <ArrowUpRight className="h-4 w-4" />
           </a>
-          <button
-            type="button"
-            className="h-11 w-11 rounded-full border-0 bg-background shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:bg-background/80 flex items-center justify-center"
-            aria-label="Play intro"
+          <a
+            href="#contact"
+            className="rounded-full px-6 py-3 text-sm font-medium font-body bg-background/80 backdrop-blur-md border border-border text-foreground hover:bg-background transition-colors"
           >
-            <Play className="h-4 w-4 fill-foreground text-foreground" />
-          </button>
+            Get in touch
+          </a>
         </motion.div>
 
         {/* Dashboard preview */}
-        <motion.div
+        <TiltCard
+          as={motion.div}
+          strength={3}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-8 w-full max-w-5xl"
+          className="mt-10 w-full max-w-5xl"
         >
           <DashboardPreview />
-        </motion.div>
+        </TiltCard>
       </div>
     </section>
   )

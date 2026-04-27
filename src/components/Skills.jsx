@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
+import TiltCard from './TiltCard'
 
 export default function Skills() {
   const categories = [
@@ -12,7 +13,7 @@ export default function Skills() {
   ]
 
   return (
-    <section className="relative w-full bg-background py-24 px-4 md:px-16">
+    <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-6">
           <span className="text-sm font-body text-muted-foreground">// Skills</span>
@@ -32,8 +33,10 @@ export default function Skills() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
           {categories.map((cat, index) => (
-            <motion.div
+            <TiltCard
+              as={motion.div}
               key={cat.title}
+              strength={6}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -54,7 +57,7 @@ export default function Skills() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </TiltCard>
           ))}
         </div>
       </div>

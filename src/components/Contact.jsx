@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Mail, Github } from 'lucide-react'
 import BlurText from './BlurText'
+import TiltCard from './TiltCard'
 
 export default function Contact() {
   const links = [
@@ -25,7 +26,7 @@ export default function Contact() {
   ]
 
   return (
-    <section className="relative w-full bg-secondary/40 py-24 px-4 md:px-16 flex items-center">
+    <section className="relative w-full bg-background/70 py-24 px-4 md:px-16 flex items-center">
       <div className="max-w-4xl mx-auto w-full">
         <div className="mb-6 text-center">
           <span className="text-sm font-body text-muted-foreground">// Contact</span>
@@ -50,8 +51,10 @@ export default function Contact() {
 
         <div className="space-y-3 mt-12">
           {links.map((link, index) => (
-            <motion.a
+            <TiltCard
+              as={motion.a}
               key={link.label}
+              strength={5}
               href={link.href}
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -73,7 +76,7 @@ export default function Contact() {
                 className="text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0"
                 strokeWidth={2}
               />
-            </motion.a>
+            </TiltCard>
           ))}
         </div>
       </div>

@@ -16,10 +16,26 @@ import {
   Bell as BellIcon,
   Settings,
 } from 'lucide-react'
+import { useGitHubActivity } from '../hooks/useGitHubActivity'
 
-// Pure-React mock dashboard, ported to portfolio context (Orbito).
-// All text is select-none / pointer-events-none; this is a visual prop only.
+const FALLBACK_REPOS = [
+  { name: 'Orbito-ai/orbito', stat: 'Core · v2.4' },
+  { name: 'Orbito-ai/avatar-v2', stat: '42 commits' },
+  { name: 'Orbito-ai/giziroku-ai', stat: 'Active' },
+  { name: 'hikari-houto/madoka', stat: 'Stable' },
+]
+
+const FALLBACK_EVENTS = [
+  { date: 'Apr 26', desc: 'Deployed avatar pipeline', project: 'avatar-v2', status: 'Live', tone: 'green' },
+  { date: 'Apr 24', desc: 'Indexed customer KB', project: 'research-ai', status: 'Pending', tone: 'amber' },
+  { date: 'Apr 22', desc: 'Released v2.4', project: 'orbito', status: 'Live', tone: 'green' },
+  { date: 'Apr 18', desc: 'Patched STT latency', project: 'giziroku-ai', status: 'Live', tone: 'green' },
+]
+
 export default function DashboardPreview() {
+  const { repos, events, loading } = useGitHubActivity()
+  const repoList = !loading && repos.length ? repos : FALLBACK_REPOS
+  const eventList = !loading && events.length ? events : FALLBACK_EVENTS
   return (
     <div
       className="rounded-2xl p-3 md:p-4"
@@ -152,10 +168,9 @@ export default function DashboardPreview() {
                     <MoreHorizontal className="h-3 w-3" />
                   </div>
                 </div>
-                <RepoRow name="Orbito-ai/orbito" stat="Core · v2.4" />
-                <RepoRow name="Orbito-ai/avatar-v2" stat="42 commits" />
-                <RepoRow name="Orbito-ai/giziroku-ai" stat="Active" />
-                <RepoRow name="hikari-houto/madoka" stat="Stable" last />
+                {repoList.slice(0, 4).map((r, i) => (
+                  <RepoRow key={r.name} name={r.name} stat={r.stat} last={i === 3} />
+                ))}
               </div>
             </div>
 
@@ -175,10 +190,16 @@ export default function DashboardPreview() {
                   </tr>
                 </thead>
                 <tbody>
-                  <Row date="Apr 26" desc="Deployed avatar pipeline" project="avatar-v2" status="Live" tone="green" />
-                  <Row date="Apr 24" desc="Indexed customer KB" project="research-ai" status="Pending" tone="amber" />
-                  <Row date="Apr 22" desc="Released v2.4" project="orbito" status="Live" tone="green" />
-                  <Row date="Apr 18" desc="Patched STT latency" project="giziroku-ai" status="Live" tone="green" />
+                  {eventList.slice(0, 4).map((e, i) => (
+                    <Row
+                      key={`${e.date}-${e.desc}-${i}`}
+                      date={e.date}
+                      desc={e.desc}
+                      project={e.project}
+                      status={e.status}
+                      tone={e.tone}
+                    />
+                  ))}
                 </tbody>
               </table>
             </div>
