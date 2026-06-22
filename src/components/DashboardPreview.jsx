@@ -19,17 +19,17 @@ import {
 import { useGitHubActivity } from '../hooks/useGitHubActivity'
 
 const FALLBACK_REPOS = [
-  { name: 'Orbito-ai/orbito', stat: 'Core · v2.4' },
-  { name: 'Orbito-ai/avatar-v2', stat: '42 commits' },
-  { name: 'Orbito-ai/giziroku-ai', stat: 'Active' },
-  { name: 'hikari-houto/madoka', stat: 'Stable' },
+  { name: 'Orbito-ai/AI-Director', stat: 'Announcer ﾂｷ live' },
+  { name: 'Orbito-ai/avatar-v2', stat: 'Inworld + Tavus' },
+  { name: 'Orbito-ai/orbito-research-ai', stat: 'Active' },
+  { name: 'Orbito-ai/orbito', stat: 'Core ﾂｷ v3.1' },
 ]
 
 const FALLBACK_EVENTS = [
-  { date: 'Apr 26', desc: 'Deployed avatar pipeline', project: 'avatar-v2', status: 'Live', tone: 'green' },
-  { date: 'Apr 24', desc: 'Indexed customer KB', project: 'research-ai', status: 'Pending', tone: 'amber' },
-  { date: 'Apr 22', desc: 'Released v2.4', project: 'orbito', status: 'Live', tone: 'green' },
-  { date: 'Apr 18', desc: 'Patched STT latency', project: 'giziroku-ai', status: 'Live', tone: 'green' },
+  { date: 'Jun 18', desc: 'Shipped AI Announcer flow', project: 'AI-Director', status: 'Live', tone: 'green' },
+  { date: 'Jun 14', desc: 'Tuned avatar lip-sync model', project: 'avatar-v2', status: 'Live', tone: 'green' },
+  { date: 'Jun 10', desc: 'Indexed Q2 research corpus', project: 'research-ai', status: 'Pending', tone: 'amber' },
+  { date: 'Jun 04', desc: 'Rolled out kintai v2', project: 'kintai-v2', status: 'Live', tone: 'green' },
 ]
 
 export default function DashboardPreview() {
@@ -58,8 +58,8 @@ export default function DashboardPreview() {
           </div>
           <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-md bg-secondary w-72">
             <Search className="h-3 w-3 text-muted-foreground" />
-            <span className="text-muted-foreground">Search projects, repos…</span>
-            <span className="ml-auto text-[10px] text-muted-foreground">⌘K</span>
+            <span className="text-muted-foreground">Search projects, repos窶ｦ</span>
+            <span className="ml-auto text-[10px] text-muted-foreground">竚婁</span>
           </div>
           <div className="flex items-center gap-2">
             <button className="rounded-full bg-foreground text-background px-3 py-1 text-[10px] font-medium">
@@ -96,7 +96,7 @@ export default function DashboardPreview() {
           <main className="flex-1 bg-secondary/30 p-3 space-y-3">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold">Welcome, Hoto</div>
-              <div className="text-[10px] text-muted-foreground">Apr 27, 2026</div>
+              <div className="text-[10px] text-muted-foreground">Jun 19, 2026</div>
             </div>
 
             {/* Action pills */}

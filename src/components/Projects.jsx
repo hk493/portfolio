@@ -40,8 +40,7 @@ export default function Projects() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-md text-sm text-muted-foreground font-body leading-relaxed"
           >
-            Orbito-ai と hikari-houto で手がけた AI プロダクト・業務ツール群。
-          </motion.p>
+            AI繧｢繝翫え繝ｳ繧ｵ繝ｼ繝ｻAI繧｢繝舌ち繝ｼ繝ｻ繝ｪ繧ｵ繝ｼ繝√お繝ｼ繧ｸ繧ｧ繝ｳ繝医ｒ荳ｭ蠢・→縺励◆縲＾rbito-ai 縺ｨ hikari-houto 縺ｮ繝励Ο繝繧ｯ繝育ｾ､縲・          </motion.p>
         </div>
 
         {/* Category Filter */}

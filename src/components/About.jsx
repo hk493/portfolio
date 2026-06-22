@@ -5,11 +5,11 @@ import TiltCard from './TiltCard'
 
 export default function About() {
   const highlights = [
-    { icon: Trophy, title: 'JOP ジュニア男子総合1位', description: '日本テニス協会ランキング' },
-    { icon: Award, title: 'NCAA Div.2', description: '全米大学テニスリーグ・チームリーダー' },
-    { icon: GraduationCap, title: 'Temple University', description: 'テンプル大学 卒業' },
-    { icon: Globe, title: 'LLC Founder (US)', description: 'アメリカ在住時に起業' },
-    { icon: Briefcase, title: 'CEO', description: '株式会社オビト 代表取締役' },
+    { icon: Trophy, title: 'JOP 繧ｸ繝･繝九い逕ｷ蟄千ｷ丞粋1菴・, description: '譌･譛ｬ繝・ル繧ｹ蜊比ｼ壹Λ繝ｳ繧ｭ繝ｳ繧ｰ' },
+    { icon: Award, title: 'NCAA Div.2', description: '蜈ｨ邀ｳ螟ｧ蟄ｦ繝・ル繧ｹ繝ｪ繝ｼ繧ｰ繝ｻ繝√・繝繝ｪ繝ｼ繝繝ｼ' },
+    { icon: GraduationCap, title: 'Temple University', description: '繝・Φ繝励Ν螟ｧ蟄ｦ 蜊呈･ｭ' },
+    { icon: Globe, title: 'LLC Founder (US)', description: '繧｢繝｡繝ｪ繧ｫ蝨ｨ菴乗凾縺ｫ襍ｷ讌ｭ' },
+    { icon: Briefcase, title: 'CEO', description: '譬ｪ蠑丈ｼ夂､ｾ繧ｪ繝薙ヨ 莉｣陦ｨ蜿也ｷ蠖ｹ' },
   ]
 
   return (
@@ -42,20 +42,15 @@ export default function About() {
         >
           <div className="space-y-5 text-foreground/90 font-body leading-relaxed text-base md:text-lg">
             <p>
-              中高時代はテニスに打ち込み、
-              <span className="text-foreground font-medium">JOP（日本テニス協会）ランキング・ジュニア男子総合1位</span>
-              を獲得。
-            </p>
+              荳ｭ鬮俶凾莉｣縺ｯ繝・ル繧ｹ縺ｫ謇薙■霎ｼ縺ｿ縲・              <span className="text-foreground font-medium">JOP・域律譛ｬ繝・ル繧ｹ蜊比ｼ夲ｼ峨Λ繝ｳ繧ｭ繝ｳ繧ｰ繝ｻ繧ｸ繝･繝九い逕ｷ蟄千ｷ丞粋1菴・/span>
+              繧堤佐蠕励・            </p>
             <p>
-              大学時代はアメリカに渡り、Temple University に在学。全米大学リーグ
-              <span className="text-foreground font-medium">（NCAA Div.2）</span>
-              にてチームリーダーを務める。
-            </p>
-            <p>アメリカ在住中にLLCを立ち上げ、学生と並行してテニスコーチとしても活動。</p>
+              螟ｧ蟄ｦ譎ゆｻ｣縺ｯ繧｢繝｡繝ｪ繧ｫ縺ｫ貂｡繧翫ゝemple University 縺ｫ蝨ｨ蟄ｦ縲ょ・邀ｳ螟ｧ蟄ｦ繝ｪ繝ｼ繧ｰ
+              <span className="text-foreground font-medium">・・CAA Div.2・・/span>
+              縺ｫ縺ｦ繝√・繝繝ｪ繝ｼ繝繝ｼ繧貞漁繧√ｋ縲・            </p>
+            <p>繧｢繝｡繝ｪ繧ｫ蝨ｨ菴丈ｸｭ縺ｫLLC繧堤ｫ九■荳翫￡縲∝ｭｦ逕溘→荳ｦ陦後＠縺ｦ繝・ル繧ｹ繧ｳ繝ｼ繝√→縺励※繧よｴｻ蜍輔・/p>
             <p>
-              日本帰国後はモノリス法律事務所でパラリーガル、株式会社Hパートナー（光通信グループ）でAIエンジニアとしてインターンを経験。
-              現在は<span className="text-foreground font-medium">AIタレントを扱う株式会社オビトの代表取締役</span>として事業を率いる。
-            </p>
+              譌･譛ｬ蟶ｰ蝗ｽ蠕後・繝｢繝弱Μ繧ｹ豕募ｾ倶ｺ句漁謇縺ｧ繝代Λ繝ｪ繝ｼ繧ｬ繝ｫ縲∵ｪ蠑丈ｼ夂､ｾH繝代・繝医リ繝ｼ・亥・騾壻ｿ｡繧ｰ繝ｫ繝ｼ繝暦ｼ峨〒AI繧ｨ繝ｳ繧ｸ繝九い縺ｨ縺励※繧､繝ｳ繧ｿ繝ｼ繝ｳ繧堤ｵ碁ｨ薙・              迴ｾ蝨ｨ縺ｯ<span className="text-foreground font-medium">AI繧ｿ繝ｬ繝ｳ繝医ｒ謇ｱ縺・ｪ蠑丈ｼ夂､ｾ繧ｪ繝薙ヨ縺ｮ莉｣陦ｨ蜿也ｷ蠖ｹ</span>縺ｨ縺励※縲、I繧｢繝翫え繝ｳ繧ｵ繝ｼ繝ｻAI繧｢繝舌ち繝ｼ繝ｻ繝ｪ繧ｵ繝ｼ繝、I繧定ｻｸ縺ｨ縺励◆莠区･ｭ繧堤紫縺・ｋ縲・            </p>
           </div>
         </TiltCard>
 

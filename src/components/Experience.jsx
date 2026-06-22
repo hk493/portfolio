@@ -5,23 +5,24 @@ import TiltCard from './TiltCard'
 export default function Experience() {
   const timeline = [
     {
-      period: '2026/3 — 現在',
-      company: '株式会社オビト',
-      position: '代表取締役',
-      description: 'AIタレントを扱う株式会社オビトの代表。Orbito-ai 配下のプロダクト群を統括。',
+      period: '2026/3 窶・迴ｾ蝨ｨ',
+      company: '譬ｪ蠑丈ｼ夂､ｾ繧ｪ繝薙ヨ',
+      position: '莉｣陦ｨ蜿也ｷ蠖ｹ',
+      description:
+        'AI繧ｿ繝ｬ繝ｳ繝医ｒ謇ｱ縺・ｪ蠑丈ｼ夂､ｾ繧ｪ繝薙ヨ縺ｮ莉｣陦ｨ縲・I繧｢繝翫え繝ｳ繧ｵ繝ｼ・・I-Director・峨・AI繧｢繝舌ち繝ｼ・・vatar-v2・峨・繝ｪ繧ｵ繝ｼ繝、I縺ｪ縺ｩ縲＾rbito-ai 驟堺ｸ九・繝励Ο繝繧ｯ繝育ｾ､繧堤ｵｱ諡ｬ縲・,
       current: true,
     },
     {
-      period: '2025/10 — 2026/2',
-      company: '株式会社Hパートナー（光通信グループ）',
-      position: 'AIエンジニア インターン',
-      description: 'AIを活用した社内プロダクトの開発に従事。企業分析ツールなどに携わる。',
+      period: '2025/10 窶・2026/2',
+      company: '譬ｪ蠑丈ｼ夂､ｾH繝代・繝医リ繝ｼ・亥・騾壻ｿ｡繧ｰ繝ｫ繝ｼ繝暦ｼ・,
+      position: 'AI繧ｨ繝ｳ繧ｸ繝九い 繧､繝ｳ繧ｿ繝ｼ繝ｳ',
+      description: 'AI繧呈ｴｻ逕ｨ縺励◆遉ｾ蜀・・繝ｭ繝繧ｯ繝医・髢狗匱縺ｫ蠕謎ｺ九ゆｼ∵･ｭ蛻・梵繝・・繝ｫ縺ｪ縺ｩ縺ｫ謳ｺ繧上ｋ縲・,
     },
     {
-      period: '2025/5 — 2025/9',
-      company: 'モノリス法律事務所',
-      position: 'パラリーガル インターン',
-      description: '法律業務のサポート・リサーチ業務を担当。',
+      period: '2025/5 窶・2025/9',
+      company: '繝｢繝弱Μ繧ｹ豕募ｾ倶ｺ句漁謇',
+      position: '繝代Λ繝ｪ繝ｼ繧ｬ繝ｫ 繧､繝ｳ繧ｿ繝ｼ繝ｳ',
+      description: '豕募ｾ区･ｭ蜍吶・繧ｵ繝昴・繝医・繝ｪ繧ｵ繝ｼ繝∵･ｭ蜍吶ｒ諡・ｽ薙・,
     },
   ]
 
