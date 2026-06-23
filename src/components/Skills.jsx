@@ -1,22 +1,22 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
 import TiltCard from './TiltCard'
+import { useLang } from '../i18n'
+
+const CAT_KEYS = ['ai', 'frontend', 'backend', 'media', 'infra', 'leadership']
 
 export default function Skills() {
-  const categories = [
-    { title: 'AI / LLM', items: ['LLM API 統合', 'Prompt Engineering', 'AI Agents', 'RAG / 検索拡張生成'] },
-    { title: 'Frontend', items: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS'] },
-    { title: 'Backend', items: ['Python', 'FastAPI', 'API 設計', 'データ処理'] },
-    { title: 'Media / Voice', items: ['Whisper (音声認識)', 'TTS / STT', 'FFmpeg', '動画生成パイプライン'] },
-    { title: 'Infra', items: ['Vercel', 'Render', 'GitHub / Git', 'クラウド デプロイ'] },
-    { title: 'Leadership', items: ['経営 / CEO', 'チームマネジメント', 'NCAA Div.2 キャプテン経験', 'バイリンガル (日/英)'] },
-  ]
+  const { t } = useLang()
+  const categories = CAT_KEYS.map((key) => ({
+    title: t(`skills.cat.${key}.title`),
+    items: t(`skills.cat.${key}.items`),
+  }))
 
   return (
     <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-6">
-          <span className="text-sm font-body text-muted-foreground">// Skills</span>
+          <span className="text-sm font-body text-muted-foreground">{t('skills.label')}</span>
         </div>
 
         <BlurText
@@ -47,7 +47,7 @@ export default function Skills() {
                 {cat.title}
               </h3>
               <ul className="space-y-2 mt-auto">
-                {cat.items.map((item) => (
+                {(Array.isArray(cat.items) ? cat.items : []).map((item) => (
                   <li
                     key={item}
                     className="flex gap-2 text-sm text-foreground/85 font-body"

@@ -17,12 +17,13 @@ import {
   Settings,
 } from 'lucide-react'
 import { useGitHubActivity } from '../hooks/useGitHubActivity'
+import { useLang } from '../i18n'
 
 const FALLBACK_REPOS = [
-  { name: 'Orbito-ai/AI-Director', stat: 'Announcer ﾂｷ live' },
-  { name: 'Orbito-ai/avatar-v2', stat: 'Inworld + Tavus' },
-  { name: 'Orbito-ai/orbito-research-ai', stat: 'Active' },
-  { name: 'Orbito-ai/orbito', stat: 'Core ﾂｷ v3.1' },
+  { name: 'Orbito-ai/AI-Director', stat: 'Announcer · live' },
+  { name: 'Orbito-ai/avatar-v2', stat: 'HeyGen + ElevenLabs' },
+  { name: 'Orbito-ai/orbito-research-ai', stat: 'RAG · 6 depts' },
+  { name: 'Orbito-ai/movie-auto-houto-', stat: 'Veo 3.1 · live' },
 ]
 
 const FALLBACK_EVENTS = [
@@ -34,6 +35,7 @@ const FALLBACK_EVENTS = [
 
 export default function DashboardPreview() {
   const { repos, events, loading } = useGitHubActivity()
+  const { t } = useLang()
   const repoList = !loading && repos.length ? repos : FALLBACK_REPOS
   const eventList = !loading && events.length ? events : FALLBACK_EVENTS
   return (
@@ -58,8 +60,8 @@ export default function DashboardPreview() {
           </div>
           <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-md bg-secondary w-72">
             <Search className="h-3 w-3 text-muted-foreground" />
-            <span className="text-muted-foreground">Search projects, repos窶ｦ</span>
-            <span className="ml-auto text-[10px] text-muted-foreground">竚婁</span>
+            <span className="text-muted-foreground">Search projects, repos…</span>
+            <span className="ml-auto text-[10px] text-muted-foreground">⌘K</span>
           </div>
           <div className="flex items-center gap-2">
             <button className="rounded-full bg-foreground text-background px-3 py-1 text-[10px] font-medium">
@@ -95,11 +97,10 @@ export default function DashboardPreview() {
           {/* Main */}
           <main className="flex-1 bg-secondary/30 p-3 space-y-3">
             <div className="flex items-center justify-between">
-              <div className="text-sm font-semibold">Welcome, Hoto</div>
-              <div className="text-[10px] text-muted-foreground">Jun 19, 2026</div>
+              <div className="text-sm font-semibold">{t('dashboard.welcome')}</div>
+              <div className="text-[10px] text-muted-foreground">{t('dashboard.date')}</div>
             </div>
 
-            {/* Action pills */}
             <div className="flex items-center gap-1.5 flex-wrap">
               <Pill primary>Deploy</Pill>
               <Pill>New Repo</Pill>
@@ -110,9 +111,7 @@ export default function DashboardPreview() {
               <span className="text-[10px] text-muted-foreground ml-1">Customize</span>
             </div>
 
-            {/* Two cards */}
             <div className="flex gap-3">
-              {/* Build/usage card */}
               <div className="flex-1 basis-0 rounded-lg bg-white border border-border p-3">
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
@@ -137,7 +136,6 @@ export default function DashboardPreview() {
                   </div>
                 </div>
 
-                {/* SVG area chart */}
                 <svg viewBox="0 0 240 80" className="h-20 w-full mt-2" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
@@ -159,7 +157,6 @@ export default function DashboardPreview() {
                 </svg>
               </div>
 
-              {/* Repos card */}
               <div className="flex-1 basis-0 rounded-lg bg-white border border-border p-3">
                 <div className="flex items-center justify-between mb-1">
                   <div className="text-[10px] text-muted-foreground">Repositories</div>
@@ -174,7 +171,6 @@ export default function DashboardPreview() {
               </div>
             </div>
 
-            {/* Recent activity */}
             <div className="rounded-lg bg-white border border-border p-3">
               <div className="flex items-center justify-between mb-2">
                 <div className="text-[10px] font-medium">Recent Activity</div>

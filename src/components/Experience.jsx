@@ -1,36 +1,23 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
 import TiltCard from './TiltCard'
+import { useLang } from '../i18n'
 
 export default function Experience() {
-  const timeline = [
-    {
-      period: '2026/3 窶・迴ｾ蝨ｨ',
-      company: '譬ｪ蠑丈ｼ夂､ｾ繧ｪ繝薙ヨ',
-      position: '莉｣陦ｨ蜿也ｷ蠖ｹ',
-      description:
-        'AI繧ｿ繝ｬ繝ｳ繝医ｒ謇ｱ縺・ｪ蠑丈ｼ夂､ｾ繧ｪ繝薙ヨ縺ｮ莉｣陦ｨ縲・I繧｢繝翫え繝ｳ繧ｵ繝ｼ・・I-Director・峨・AI繧｢繝舌ち繝ｼ・・vatar-v2・峨・繝ｪ繧ｵ繝ｼ繝、I縺ｪ縺ｩ縲＾rbito-ai 驟堺ｸ九・繝励Ο繝繧ｯ繝育ｾ､繧堤ｵｱ諡ｬ縲・,
-      current: true,
-    },
-    {
-      period: '2025/10 窶・2026/2',
-      company: '譬ｪ蠑丈ｼ夂､ｾH繝代・繝医リ繝ｼ・亥・騾壻ｿ｡繧ｰ繝ｫ繝ｼ繝暦ｼ・,
-      position: 'AI繧ｨ繝ｳ繧ｸ繝九い 繧､繝ｳ繧ｿ繝ｼ繝ｳ',
-      description: 'AI繧呈ｴｻ逕ｨ縺励◆遉ｾ蜀・・繝ｭ繝繧ｯ繝医・髢狗匱縺ｫ蠕謎ｺ九ゆｼ∵･ｭ蛻・梵繝・・繝ｫ縺ｪ縺ｩ縺ｫ謳ｺ繧上ｋ縲・,
-    },
-    {
-      period: '2025/5 窶・2025/9',
-      company: '繝｢繝弱Μ繧ｹ豕募ｾ倶ｺ句漁謇',
-      position: '繝代Λ繝ｪ繝ｼ繧ｬ繝ｫ 繧､繝ｳ繧ｿ繝ｼ繝ｳ',
-      description: '豕募ｾ区･ｭ蜍吶・繧ｵ繝昴・繝医・繝ｪ繧ｵ繝ｼ繝∵･ｭ蜍吶ｒ諡・ｽ薙・,
-    },
-  ]
+  const { t } = useLang()
+  const timeline = [0, 1, 2].map((i) => ({
+    period: t(`exp.${i}.period`),
+    company: t(`exp.${i}.company`),
+    position: t(`exp.${i}.position`),
+    description: t(`exp.${i}.desc`),
+    current: i === 0,
+  }))
 
   return (
     <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-5xl mx-auto">
         <div className="mb-6">
-          <span className="text-sm font-body text-muted-foreground">// Experience</span>
+          <span className="text-sm font-body text-muted-foreground">{t('exp.label')}</span>
         </div>
 
         <BlurText
@@ -57,7 +44,7 @@ export default function Experience() {
                 </div>
                 {item.current && (
                   <span className="inline-block bg-accent text-accent-foreground px-2.5 py-0.5 text-xs font-semibold rounded-full font-body">
-                    Current
+                    {t('exp.current')}
                   </span>
                 )}
               </div>
