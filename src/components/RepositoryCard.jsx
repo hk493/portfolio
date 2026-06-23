@@ -1,9 +1,26 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Github } from 'lucide-react'
+import { useLang } from '../i18n'
+
+function L(v, lang) {
+  if (v && typeof v === 'object' && !Array.isArray(v)) return v[lang] ?? v.ja ?? ''
+  return v ?? ''
+}
+
+function LA(v, lang) {
+  if (v && typeof v === 'object' && !Array.isArray(v)) return v[lang] ?? v.ja ?? []
+  return Array.isArray(v) ? v : []
+}
 
 export default function RepositoryCard({ repo, index }) {
   const cardRef = useRef(null)
+  const { lang, t } = useLang()
+
+  const displayName = L(repo.displayName, lang)
+  const tagline = L(repo.tagline, lang)
+  const description = L(repo.description, lang)
+  const features = LA(repo.features, lang)
 
   const handleMove = (e) => {
     const card = cardRef.current
@@ -40,15 +57,14 @@ export default function RepositoryCard({ repo, index }) {
     >
       <div className="tilt-shine" aria-hidden="true" />
       <div className="tilt-card-inner relative flex flex-col flex-1">
-        {/* Category & featured */}
         <div className="flex items-start justify-between gap-4 mb-5">
           <div className="flex flex-wrap gap-1.5">
             <span className="bg-secondary text-foreground rounded-full px-3 py-1 text-[11px] font-body whitespace-nowrap">
-              {repo.category}
+              {t(`projects.filter.${repo.category}`)}
             </span>
             {repo.featured && (
               <span className="bg-accent text-accent-foreground rounded-full px-3 py-1 text-[11px] font-semibold font-body whitespace-nowrap">
-                Featured
+                {t('card.featured')}
               </span>
             )}
           </div>
@@ -63,24 +79,19 @@ export default function RepositoryCard({ repo, index }) {
           </a>
         </div>
 
-        {/* Title */}
         <h3 className="font-display italic text-foreground text-3xl md:text-4xl leading-[0.95] tracking-[-1px] mb-2">
-          {repo.displayName}
+          {displayName}
         </h3>
-        <p className="text-sm text-muted-foreground font-body mb-5">{repo.tagline}</p>
+        <p className="text-sm text-muted-foreground font-body mb-5">{tagline}</p>
 
-        {/* Description */}
-        <p className="text-sm text-foreground/85 font-body leading-relaxed mb-6">
-          {repo.description}
-        </p>
+        <p className="text-sm text-foreground/85 font-body leading-relaxed mb-6">{description}</p>
 
-        {/* Features */}
         <div className="mb-6 flex-1">
           <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-body mb-3">
-            Features
+            {t('card.features')}
           </div>
           <ul className="space-y-2">
-            {repo.features.map((f, i) => (
+            {features.map((f, i) => (
               <li
                 key={i}
                 className="flex gap-2 text-sm text-foreground/90 font-body leading-relaxed"
@@ -92,9 +103,8 @@ export default function RepositoryCard({ repo, index }) {
           </ul>
         </div>
 
-        {/* Tech */}
         <div className="flex flex-wrap gap-1.5 mb-4">
-          {repo.techStack.map((tech) => (
+          {(repo.techStack || []).map((tech) => (
             <span
               key={tech}
               className="bg-secondary text-foreground rounded-full px-3 py-1 text-[11px] font-body whitespace-nowrap"
@@ -104,7 +114,6 @@ export default function RepositoryCard({ repo, index }) {
           ))}
         </div>
 
-        {/* Repo path */}
         <a
           href={`https://github.com/${repo.owner}/${repo.name}`}
           target="_blank"

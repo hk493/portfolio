@@ -1,35 +1,23 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
 import TiltCard from './TiltCard'
+import { useLang } from '../i18n'
 
 export default function Experience() {
-  const timeline = [
-    {
-      period: '2026/3 — 現在',
-      company: '株式会社オビト',
-      position: '代表取締役',
-      description: 'AIタレントを扱う株式会社オビトの代表。Orbito-ai 配下のプロダクト群を統括。',
-      current: true,
-    },
-    {
-      period: '2025/10 — 2026/2',
-      company: '株式会社Hパートナー（光通信グループ）',
-      position: 'AIエンジニア インターン',
-      description: 'AIを活用した社内プロダクトの開発に従事。企業分析ツールなどに携わる。',
-    },
-    {
-      period: '2025/5 — 2025/9',
-      company: 'モノリス法律事務所',
-      position: 'パラリーガル インターン',
-      description: '法律業務のサポート・リサーチ業務を担当。',
-    },
-  ]
+  const { t } = useLang()
+  const timeline = [0, 1, 2].map((i) => ({
+    period: t(`exp.${i}.period`),
+    company: t(`exp.${i}.company`),
+    position: t(`exp.${i}.position`),
+    description: t(`exp.${i}.desc`),
+    current: i === 0,
+  }))
 
   return (
     <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-5xl mx-auto">
         <div className="mb-6">
-          <span className="text-sm font-body text-muted-foreground">// Experience</span>
+          <span className="text-sm font-body text-muted-foreground">{t('exp.label')}</span>
         </div>
 
         <BlurText
@@ -56,7 +44,7 @@ export default function Experience() {
                 </div>
                 {item.current && (
                   <span className="inline-block bg-accent text-accent-foreground px-2.5 py-0.5 text-xs font-semibold rounded-full font-body">
-                    Current
+                    {t('exp.current')}
                   </span>
                 )}
               </div>

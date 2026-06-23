@@ -2,21 +2,23 @@ import { motion } from 'framer-motion'
 import { Trophy, Award, GraduationCap, Globe, Briefcase } from 'lucide-react'
 import BlurText from './BlurText'
 import TiltCard from './TiltCard'
+import { useLang } from '../i18n'
+
+const ICONS = [Trophy, Award, GraduationCap, Globe, Briefcase]
 
 export default function About() {
-  const highlights = [
-    { icon: Trophy, title: 'JOP ジュニア男子総合1位', description: '日本テニス協会ランキング' },
-    { icon: Award, title: 'NCAA Div.2', description: '全米大学テニスリーグ・チームリーダー' },
-    { icon: GraduationCap, title: 'Temple University', description: 'テンプル大学 卒業' },
-    { icon: Globe, title: 'LLC Founder (US)', description: 'アメリカ在住時に起業' },
-    { icon: Briefcase, title: 'CEO', description: '株式会社オビト 代表取締役' },
-  ]
+  const { t } = useLang()
+  const highlights = ICONS.map((Icon, i) => ({
+    Icon,
+    title: t(`about.h.${i}.title`),
+    description: t(`about.h.${i}.desc`),
+  }))
 
   return (
     <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6">
-          <span className="text-sm font-body text-muted-foreground">// About</span>
+          <span className="text-sm font-body text-muted-foreground">{t('about.label')}</span>
         </div>
 
         <BlurText
@@ -42,19 +44,20 @@ export default function About() {
         >
           <div className="space-y-5 text-foreground/90 font-body leading-relaxed text-base md:text-lg">
             <p>
-              中高時代はテニスに打ち込み、
-              <span className="text-foreground font-medium">JOP（日本テニス協会）ランキング・ジュニア男子総合1位</span>
-              を獲得。
+              {t('about.body1.before')}
+              <span className="text-foreground font-medium">{t('about.body1.bold')}</span>
+              {t('about.body1.after')}
             </p>
             <p>
-              大学時代はアメリカに渡り、Temple University に在学。全米大学リーグ
-              <span className="text-foreground font-medium">（NCAA Div.2）</span>
-              にてチームリーダーを務める。
+              {t('about.body2.before')}
+              <span className="text-foreground font-medium">{t('about.body2.bold')}</span>
+              {t('about.body2.after')}
             </p>
-            <p>アメリカ在住中にLLCを立ち上げ、学生と並行してテニスコーチとしても活動。</p>
+            <p>{t('about.body3')}</p>
             <p>
-              日本帰国後はモノリス法律事務所でパラリーガル、株式会社Hパートナー（光通信グループ）でAIエンジニアとしてインターンを経験。
-              現在は<span className="text-foreground font-medium">AIタレントを扱う株式会社オビトの代表取締役</span>として事業を率いる。
+              {t('about.body4.before')}
+              <span className="text-foreground font-medium">{t('about.body4.bold')}</span>
+              {t('about.body4.after')}
             </p>
           </div>
         </TiltCard>
@@ -72,7 +75,7 @@ export default function About() {
               className="rounded-2xl border border-border bg-white p-5"
             >
               <div className="h-9 w-9 rounded-lg bg-secondary flex items-center justify-center mb-3">
-                <item.icon size={18} className="text-foreground" strokeWidth={1.5} />
+                <item.Icon size={18} className="text-foreground" strokeWidth={1.5} />
               </div>
               <h3 className="text-base font-display italic text-foreground leading-tight mb-1">
                 {item.title}

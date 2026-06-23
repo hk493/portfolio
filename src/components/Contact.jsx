@@ -2,8 +2,10 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Mail, Github } from 'lucide-react'
 import BlurText from './BlurText'
 import TiltCard from './TiltCard'
+import { useLang } from '../i18n'
 
 export default function Contact() {
+  const { t } = useLang()
   const links = [
     {
       icon: Mail,
@@ -29,7 +31,7 @@ export default function Contact() {
     <section className="relative w-full bg-background/70 py-24 px-4 md:px-16 flex items-center">
       <div className="max-w-4xl mx-auto w-full">
         <div className="mb-6 text-center">
-          <span className="text-sm font-body text-muted-foreground">// Contact</span>
+          <span className="text-sm font-body text-muted-foreground">{t('contact.label')}</span>
         </div>
 
         <BlurText
@@ -46,7 +48,7 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 max-w-xl mx-auto text-center text-sm md:text-base text-muted-foreground font-body leading-relaxed"
         >
-          新しいプロジェクトの相談、AIタレント・プロダクト開発のお話など、お気軽にご連絡ください。
+          {t('contact.description')}
         </motion.p>
 
         <div className="space-y-3 mt-12">
