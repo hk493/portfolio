@@ -32,6 +32,15 @@ export default function About() {
           delayStart={0.3}
           className="font-display italic text-foreground text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-2px]"
         />
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-6 font-body text-lg md:text-xl text-muted-foreground tracking-tight"
+        >
+          {t('about.name')}
+        </motion.p>
 
         <TiltCard
           as={motion.div}
@@ -43,23 +52,17 @@ export default function About() {
           className="rounded-2xl border border-border bg-white p-8 md:p-10 mt-12 shadow-dashboard"
         >
           <div className="space-y-5 text-foreground/90 font-body leading-relaxed text-base md:text-lg">
-            <p>{t('about.body0')}</p>
-            <p>
-              {t('about.body1.before')}
-              <span className="text-foreground font-medium">{t('about.body1.bold')}</span>
-              {t('about.body1.after')}
-            </p>
-            <p>
-              {t('about.body2.before')}
-              <span className="text-foreground font-medium">{t('about.body2.bold')}</span>
-              {t('about.body2.after')}
-            </p>
-            <p>{t('about.body3')}</p>
-            <p>
-              {t('about.body4.before')}
-              <span className="text-foreground font-medium">{t('about.body4.bold')}</span>
-              {t('about.body4.after')}
-            </p>
+            {(Array.isArray(t('about.paras')) ? t('about.paras') : []).map((para) => (
+              <p key={para}>
+                {para.split('**').map((part, i) =>
+                  i % 2 === 1 ? (
+                    <span key={i} className="text-foreground font-medium">{part}</span>
+                  ) : (
+                    part
+                  )
+                )}
+              </p>
+            ))}
           </div>
         </TiltCard>
 

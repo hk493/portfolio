@@ -22,20 +22,11 @@ const ja = {
   'home.cta.contact': 'お問い合わせ',
 
   'about.label': '// About',
-  'about.body0':
-    'はじめまして、田島宝人です。起業家として事業をつくり、エンジニアとしてAIツールを開発し、アスリートとしてテニスに打ち込んできました。',
-  'about.body1.before': '中学・高校時代はテニスに打ち込み、',
-  'about.body1.bold': 'JOP（日本テニス協会）ジュニア男子ランキング1位',
-  'about.body1.after': 'を獲得しました。',
-  'about.body2.before': '大学からはアメリカに渡り、競技を続けながら学びました。King University では全米大学リーグ',
-  'about.body2.bold': '（NCAA Div.2）',
-  'about.body2.after': 'の男子テニス部で、ダブルス1番手を務めました。',
-  'about.body3': 'アメリカ在住中にはLLCを立ち上げ、学業と並行してテニスコーチとしても活動しました。',
-  'about.body4.before':
-    '日本に帰国後はテンプル大学ジャパンキャンパスに在学し、モノリス法律事務所でパラリーガル、株式会社メタデータと株式会社Hパートナー（光通信グループ）でAIエンジニアを経験しました。2026年からは株式会社オビトの事業責任者（代表取締役）としてAIタレント事業を率い、現在は',
-  'about.body4.bold': 'コアコンサルティンググループ（光通信グループ）',
-  'about.body4.after':
-    'で、グループ各社の業務自動化とAI活用の提案を担当しています。',
+  'about.name': '田島 宝人（Hoto Tajima）',
+  'about.paras': [
+    'テニスで**JOPジュニア男子ランキング1位**を獲得し、渡米後は**NCAA Div.2**の男子テニス部でダブルス1番手を務めた。在米中はテニスコーチとして指導し、サンケアブランドのECサイト構築も手がけた。',
+    '帰国後は、法律事務所のパラリーガル、訪日客向けeSIM販売サービスの創業、AIエンジニア（株式会社メタデータ、株式会社Hパートナー）を経験。その後、光通信グループの社内ベンチャーで**株式会社オビトの事業責任者（代表取締役）**に就任し、40社超の商談記録から事業を転換して、提案した9社すべてから受注。現在はコアコンサルティンググループで、グループ各社の業務自動化を担う。',
+  ],
   'about.h.0.title': 'JOP ジュニア男子総合1位',
   'about.h.0.desc': '日本テニス協会ランキング',
   'about.h.1.title': 'NCAA Div.2',
@@ -128,7 +119,7 @@ const ja = {
   'exp.4.results': [],
 
   'work.label': '// Work',
-  'work.description': 'これまでに担当した支援・制作の実績です。取引先の社名は伏せています。',
+  'work.description': 'これまでに担当した支援・制作の実績。取引先の社名は非公開。',
 
   'projects.label': '// Projects',
   'projects.description':
@@ -187,21 +178,11 @@ const en = {
   'home.cta.contact': 'Get in touch',
 
   'about.label': '// About',
-  'about.body0':
-    'Hi, I’m Hoto Tajima. I build businesses as a founder, build AI tools as an engineer, and grew up competing as a tennis player.',
-  'about.body1.before': 'Through junior high and high school, I committed to tennis and earned the ',
-  'about.body1.bold': "Japan Tennis Association (JOP) Junior Boys' #1 ranking",
-  'about.body1.after': '.',
-  'about.body2.before': 'For college, I moved to the US to keep competing while I studied. At King University I played first doubles for the ',
-  'about.body2.bold': 'NCAA Div.2',
-  'about.body2.after': ' men’s tennis team.',
-  'about.body3':
-    'While studying in the US, I founded an LLC and worked as a tennis coach alongside school.',
-  'about.body4.before':
-    'Back in Japan, I enrolled at Temple University Japan and worked as a paralegal at Monolith Law Office and as an AI engineer at Metadata, Inc. and H Partner, Inc. (Hikari Tsushin Group). In 2026 I led the AI talent business as CEO of Orbito, and I now work at ',
-  'about.body4.bold': 'Core Consulting Group (Hikari Tsushin Group)',
-  'about.body4.after':
-    ', automating workflows and proposing AI use across group companies.',
+  'about.name': 'Hoto Tajima',
+  'about.paras': [
+    'In tennis, I reached **No. 1 in Japan’s JOP junior rankings**, then moved to the US and played first doubles for an **NCAA Div.2** team. While there, I coached tennis and built an e-commerce store for a suncare brand.',
+    'Back in Japan, I worked as a paralegal at a law firm, founded an eSIM vending service for visitors to Japan, and worked as an AI engineer at Metadata and H Partner (Hikari Tsushin Group). I then became **head (CEO) of Orbito**, a new venture inside the group, pivoted it using what 40+ sales meetings taught me, and won all nine companies we pitched. Today I automate workflows across group companies at Core Consulting Group.',
+  ],
   'about.h.0.title': 'JOP Junior #1',
   'about.h.0.desc': 'Japan Tennis Association ranking',
   'about.h.1.title': 'NCAA Div.2',

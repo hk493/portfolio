@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import DashboardPreview from './DashboardPreview'
-import TiltCard from './TiltCard'
 import { useLang } from '../i18n'
 
 export default function Home() {
@@ -39,16 +37,6 @@ export default function Home() {
           </a>
         </motion.div>
 
-        <TiltCard
-          as={motion.div}
-          strength={3}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-10 w-full max-w-5xl"
-        >
-          <DashboardPreview />
-        </TiltCard>
       </div>
     </section>
   )
