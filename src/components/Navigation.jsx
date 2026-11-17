@@ -11,6 +11,7 @@ export default function Navigation() {
     { key: 'home', href: '#home' },
     { key: 'about', href: '#about' },
     { key: 'experience', href: '#experience' },
+    { key: 'work', href: '#work' },
     { key: 'projects', href: '#projects' },
     { key: 'skills', href: '#skills' },
     { key: 'contact', href: '#contact' },

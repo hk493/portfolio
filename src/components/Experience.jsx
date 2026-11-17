@@ -5,7 +5,7 @@ import { useLang } from '../i18n'
 
 export default function Experience() {
   const { t } = useLang()
-  const timeline = [0, 1, 2].map((i) => ({
+  const timeline = [0, 1, 2, 3, 4].map((i) => ({
     period: t(`exp.${i}.period`),
     company: t(`exp.${i}.company`),
     position: t(`exp.${i}.position`),

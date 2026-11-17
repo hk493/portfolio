@@ -2,6 +2,7 @@ import Navigation from './components/Navigation'
 import Home from './components/Home'
 import About from './components/About'
 import Experience from './components/Experience'
+import Work from './components/Work'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
@@ -26,6 +27,9 @@ function App() {
           </section>
           <section id="experience">
             <Experience />
+          </section>
+          <section id="work">
+            <Work />
           </section>
           <section id="projects">
             <Projects />
