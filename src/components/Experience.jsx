@@ -10,6 +10,8 @@ export default function Experience() {
     company: t(`exp.${i}.company`),
     position: t(`exp.${i}.position`),
     description: t(`exp.${i}.desc`),
+    duties: t(`exp.${i}.duties`),
+    results: t(`exp.${i}.results`),
     current: i === 0,
   }))
 
@@ -58,6 +60,24 @@ export default function Experience() {
                 <p className="text-sm text-muted-foreground font-body leading-relaxed">
                   {item.description}
                 </p>
+                {[
+                  { label: t('exp.dutiesLabel'), items: item.duties },
+                  { label: t('exp.resultsLabel'), items: item.results },
+                ]
+                  .filter((g) => Array.isArray(g.items) && g.items.length > 0)
+                  .map((g) => (
+                    <div key={g.label} className="mt-5">
+                      <div className="text-xs font-body font-medium text-foreground/70 mb-2">{g.label}</div>
+                      <ul className="space-y-1.5">
+                        {g.items.map((line) => (
+                          <li key={line} className="flex gap-2 text-sm text-foreground/85 font-body leading-relaxed">
+                            <span className="text-muted-foreground" aria-hidden="true">—</span>
+                            <span>{line}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
               </div>
             </TiltCard>
           ))}

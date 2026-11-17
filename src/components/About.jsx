@@ -23,12 +23,12 @@ export default function About() {
 
         <BlurText
           as="h2"
-          text="Athlete. Founder."
+          text="Founder. Engineer."
           className="font-display italic text-foreground text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-2px]"
         />
         <BlurText
           as="h2"
-          text="Engineer."
+          text="Athlete."
           delayStart={0.3}
           className="font-display italic text-foreground text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-2px]"
         />
@@ -43,6 +43,7 @@ export default function About() {
           className="rounded-2xl border border-border bg-white p-8 md:p-10 mt-12 shadow-dashboard"
         >
           <div className="space-y-5 text-foreground/90 font-body leading-relaxed text-base md:text-lg">
+            <p>{t('about.body0')}</p>
             <p>
               {t('about.body1.before')}
               <span className="text-foreground font-medium">{t('about.body1.bold')}</span>
