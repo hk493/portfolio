@@ -141,3 +141,12 @@
 /* Helpers */
 .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Never show native video controls on the background video (iOS play button) */
+.bg-video::-webkit-media-controls,
+.bg-video::-webkit-media-controls-panel,
+.bg-video::-webkit-media-controls-play-button,
+.bg-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}

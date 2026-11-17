@@ -15,7 +15,7 @@ export default function About() {
   }))
 
   return (
-    <section className="relative w-full bg-background/70 py-24 px-4 md:px-16">
+    <section className="relative w-full bg-background/70 pt-32 md:pt-36 pb-24 px-4 md:px-16">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6">
           <span className="text-sm font-body text-muted-foreground">{t('about.label')}</span>

@@ -8,7 +8,6 @@ export default function Navigation() {
   const { lang, toggleLang, t } = useLang()
 
   const links = [
-    { key: 'home', href: '#home' },
     { key: 'about', href: '#about' },
     { key: 'experience', href: '#experience' },
     { key: 'work', href: '#work' },
@@ -27,7 +26,7 @@ export default function Navigation() {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#home"
+          href="#about"
           className="text-xl font-semibold tracking-tight text-foreground flex items-center gap-1.5"
         >
           <span className="text-accent">✦</span> Hoto

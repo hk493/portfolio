@@ -1,5 +1,4 @@
 import Navigation from './components/Navigation'
-import Home from './components/Home'
 import About from './components/About'
 import Experience from './components/Experience'
 import Work from './components/Work'
@@ -19,9 +18,6 @@ function App() {
         <CustomCursor />
         <div className="relative z-10 min-h-screen">
           <Navigation />
-          <section id="home">
-            <Home />
-          </section>
           <section id="about">
             <About />
           </section>
